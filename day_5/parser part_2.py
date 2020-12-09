@@ -28,16 +28,21 @@ for passport in data:
         col_max = col
 
     seat_id = row * 8 + col
-    seat_ids.append(seat_id)    
+    
+    if seat_id == 15:
+        print(row)
+    # the first row is not part of the solution according to the task description
+    if row != 1:
+        seat_ids.append(seat_id)    
 
 seat_ids.sort()
 
-# 589 too low
-# 600 too big
+# The Seat ID is the only missing one 
+# print the ID, which is not one bigger than the id before it
 for i in range(len(seat_ids)):
     if seat_ids[-1] != None:
         if seat_ids[i] != int(seat_ids[i-1]) + 1:
-            print(seat_ids[i])
+            print(seat_ids[i]-1)
 
 # print("Row Max: {}, Col Max: {}".format(row_max, col_max))
-# print(seat_ids)
+print(seat_ids)
